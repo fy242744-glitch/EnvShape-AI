@@ -1,0 +1,6 @@
+timestamp,task_id,group,model,correct,reason,latency_ms,tokens
+2026-10-19T19:29:12,func_001,A,mock,True,slope/intercept ok,0,0
+2026-10-19T19:29:12,func_002,A,mock,True,intersection ok,0,0
+2026-10-19T19:29:12,func_003,A,mock,True,slope/intercept ok,0,0
+2026-10-19T19:29:12,func_004,A,mock,False,"intercept mismatch: got -2.0, expected 2",0,0
+2026-10-19T19:29:12,func_005,A,mock,True,intersection ok,0,0

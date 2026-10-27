@@ -1,0 +1,41 @@
+timestamp,task_id,group,model,correct,reason,latency_ms,tokens
+2026-10-21T18:11:32,func_001,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_002,A,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_003,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_004,A,mock,False,"intercept mismatch: got -2.0, expected 2",0,0
+2026-10-21T18:11:32,func_005,A,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_006,A,mock,True,quadrants ok,0,0
+2026-10-21T18:11:32,func_007,A,mock,True,slope_sign ok,0,0
+2026-10-21T18:11:32,func_008,A,mock,True,relation ok,0,0
+2026-10-21T18:11:32,func_009,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_010,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_011,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_012,A,mock,False,"quadrants mismatch: got [1, 2, 4], expected [1, 3, 4]",0,0
+2026-10-21T18:11:32,func_013,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_014,A,mock,True,relation ok,0,0
+2026-10-21T18:11:32,func_015,A,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_016,A,mock,True,quadrants ok,0,0
+2026-10-21T18:11:32,func_017,A,mock,True,relation ok,0,0
+2026-10-21T18:11:32,func_018,A,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_019,A,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_020,A,mock,True,slope_sign ok,0,0
+2026-10-21T18:11:32,func_001,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_002,B,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_003,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_004,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_005,B,mock,False,"intersection mismatch: got [3, 4], expected [3, 5]",0,0
+2026-10-21T18:11:32,func_006,B,mock,True,quadrants ok,0,0
+2026-10-21T18:11:32,func_007,B,mock,True,slope_sign ok,0,0
+2026-10-21T18:11:32,func_008,B,mock,True,relation ok,0,0
+2026-10-21T18:11:32,func_009,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_010,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_011,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_012,B,mock,True,quadrants ok,0,0
+2026-10-21T18:11:32,func_013,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_014,B,mock,True,relation ok,0,0
+2026-10-21T18:11:32,func_015,B,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_016,B,mock,True,quadrants ok,0,0
+2026-10-21T18:11:32,func_017,B,mock,False,"relation mismatch: got intersect, expected parallel",0,0
+2026-10-21T18:11:32,func_018,B,mock,True,intersection ok,0,0
+2026-10-21T18:11:32,func_019,B,mock,True,slope/intercept ok,0,0
+2026-10-21T18:11:32,func_020,B,mock,True,slope_sign ok,0,0
