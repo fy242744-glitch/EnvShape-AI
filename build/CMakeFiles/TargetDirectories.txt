@@ -1,3 +1,0 @@
-C:/Users/Lv242/Desktop/work/环境塑造理论/EnvShape AI/build/CMakeFiles/envshape.dir
-C:/Users/Lv242/Desktop/work/环境塑造理论/EnvShape AI/build/CMakeFiles/edit_cache.dir
-C:/Users/Lv242/Desktop/work/环境塑造理论/EnvShape AI/build/CMakeFiles/rebuild_cache.dir
