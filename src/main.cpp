@@ -46,20 +46,24 @@ std::string call_opencode_api(const std::string& prompt, const std::string& grou
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
     // 4. 构建请求体 (根据 group 区分 System Prompt)
-    std::string sys_prompt = "你是一个严谨的 JSON 数据生成器。禁止输出任何解释、标点或 Markdown。\n如果题目问斜率截距，必须输出：{\"slope\": 2, \"intercept\": 1}\n如果题目问交点，必须输出：{\"intersection\": [1, 3]}\n如果题目问象限，必须输出：{\"quadrants\": [1, 3, 4]}\n如果题目问斜率正负，必须输出：{\"slope_sign\": \"positive\" 或 \"negative\"}\n如果题目问直线关系，必须输出：{\"relation\": \"parallel\" 或 \"intersect\"}\n绝对禁止使用 'answer' 作为键名！";
-
-    if (group == "B") {
-        sys_prompt = "【元规则：请优先尝试将代数问题转化为几何图形或空间关系来思考】\n" + sys_prompt;
+    // 修改 System Prompt 逻辑
+    std::string sys_prompt;
+    if (group == "A") {
+        // A 组：极度简略，没有格式约束（让它放飞自我）
+        sys_prompt = "你是一个答题助手，请直接回答问题。";
+    } else {
+        // B 组：加上极严格的元规则与格式约束（强行收束）
+        sys_prompt = "你是一个严谨的 JSON 数据生成器。在作答前，必须先思考代数与几何的映射关系。禁止输出任何解释、标点或 Markdown。\n如果题目问斜率截距，必须输出：{\"slope\": 2, \"intercept\": 1}\n如果题目问交点，必须输出：{\"intersection\": [1, 3]}\n如果题目问象限，必须输出：{\"quadrants\": [1, 3, 4]}\n如果题目问斜率正负，必须输出：{\"slope_sign\": \"positive\" 或 \"negative\"}\n如果题目问直线关系，必须输出：{\"relation\": \"parallel\" 或 \"intersect\"}\n绝对禁止使用 'answer' 作为键名！";
     }
 
-    // 使用 nlohmann/json 安全地构建请求体
+    // 将 temperature 改为 1.0
     json payload;
     payload["model"] = "deepseek-v4.1-flash";
     payload["messages"] = json::array({
         {{"role", "system"}, {"content", sys_prompt}},
         {{"role", "user"}, {"content", prompt}}
     });
-    payload["temperature"] = 0.0;
+    payload["temperature"] = 0.0; // 关键：提高温度，制造不确定性
 
     std::string json_payload = payload.dump();
     curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_payload.c_str());

@@ -1,41 +1,7 @@
 task_id,group,correct,reason
-func_001,A,True,slope/intercept ok
-func_002,A,True,intersection ok
-func_003,A,True,slope/intercept ok
-func_004,A,True,slope/intercept ok
-func_005,A,True,intersection ok
-func_006,A,True,quadrants ok
-func_007,A,True,slope_sign ok
-func_008,A,True,relation ok
-func_009,A,True,slope/intercept ok
-func_010,A,True,slope/intercept ok
-func_011,A,True,slope/intercept ok
-func_012,A,True,quadrants ok
-func_013,A,True,slope/intercept ok
-func_014,A,True,relation ok
-func_015,A,True,intersection ok
-func_016,A,True,quadrants ok
-func_017,A,True,relation ok
-func_018,A,True,intersection ok
-func_019,A,True,slope/intercept ok
-func_020,A,True,slope_sign ok
+func_001,A,False,parse_error
+func_002,A,False,parse_error
+func_006,A,False,parse_error
 func_001,B,True,slope/intercept ok
 func_002,B,True,intersection ok
-func_003,B,True,slope/intercept ok
-func_004,B,True,slope/intercept ok
-func_005,B,True,intersection ok
 func_006,B,True,quadrants ok
-func_007,B,True,slope_sign ok
-func_008,B,True,relation ok
-func_009,B,True,slope/intercept ok
-func_010,B,True,slope/intercept ok
-func_011,B,True,slope/intercept ok
-func_012,B,True,quadrants ok
-func_013,B,True,slope/intercept ok
-func_014,B,True,relation ok
-func_015,B,True,intersection ok
-func_016,B,True,quadrants ok
-func_017,B,True,relation ok
-func_018,B,True,intersection ok
-func_019,B,True,slope/intercept ok
-func_020,B,True,slope_sign ok
