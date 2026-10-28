@@ -1,5 +1,5 @@
 {
   "intercept": 2,
-  "reasoning": "直线方程为 y=4x+2，与 y=kx+b 对比可得斜率 k=4，截距 b=2。",
+  "reasoning": "直线方程为 y=4x+2，符合 y=kx+b 形式，因此斜率 k=4，截距 b=2。",
   "slope": 4
 }
