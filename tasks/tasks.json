@@ -2,8 +2,8 @@
     {
         "id": "func_001",
         "type": "num_to_shape",
-        "variant": "retry_test",
-        "prompt": "已知直线方程为 y=2x+3，求它的斜率和截距。",
-        "expected": {"slope": 102, "intercept": -47}
+        "variant": "cross_domain",
+        "prompt": "已知直线 y=4x+2，求它的斜率和截距。",
+        "expected": {"slope": 4, "intercept": 2}
     }
 ]

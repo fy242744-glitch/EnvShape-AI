@@ -20,7 +20,7 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::stri
     return newLength;
 }
 
-// 调用 API，新增 knowledge_str 参数用于环境注入
+// 调用 API
 std::string call_opencode_api(const std::string& prompt, const std::string& group, const std::string& knowledge_str) {
     CURL* curl = curl_easy_init();
     std::string response;
@@ -39,7 +39,8 @@ std::string call_opencode_api(const std::string& prompt, const std::string& grou
     headers = curl_slist_append(headers, "User-Agent: EnvShapeAI/1.0");
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 
-    std::string sys_prompt = "你是一个严谨的 JSON 数据生成器。禁止输出任何解释、标点或 Markdown。\n如果题目问斜率截距，必须输出：{\"slope\": 数字, \"intercept\": 数字}。\n绝对禁止使用 'answer' 作为键名！";
+    // 👇 强制模型输出 reasoning（思考过程）
+    std::string sys_prompt = "你是一个严谨的 JSON 数据生成器。禁止输出任何解释、标点或 Markdown 代码块。\n你必须严格按照以下 JSON 格式输出：\n{\n  \"reasoning\": \"你的推理过程\",\n  \"slope\": 数字,\n  \"intercept\": 数字\n}";
 
     if (group == "B" && !knowledge_str.empty()) {
         sys_prompt = "【元规则与外部环境知识】\n" + knowledge_str + "\n\n" + sys_prompt;
@@ -91,7 +92,7 @@ int main() {
     fs::create_directories(root / "logs");
 
     std::ofstream csv(root / "logs" / "results_cpp.csv");
-    csv << "task_id,group,correct,reason,attempts\n"; // CSV 增加 attempts 列
+    csv << "task_id,group,correct,reason,attempts\n";
 
     std::vector<std::string> groups = {"A", "B"};
 
@@ -136,6 +137,11 @@ int main() {
                         content = content.substr(start, end - start + 1);
                     }
                     answer = json::parse(content);
+
+                    // 👇 新增：打印模型的思考过程（在终端显示）
+                    if (answer.contains("reasoning")) {
+                        std::cout << "\n  [思考]: " << answer["reasoning"].get<std::string>() << "\n  ";
+                    }
 
                     // 大模型清洗层（兜底）
                     std::string raw_ans = "";
@@ -193,6 +199,7 @@ int main() {
                         }
                     }
 
+                    // 👇 就是这一行，把你找崩溃的写文件操作
                     std::ofstream ans_out(answer_file);
                     ans_out << answer.dump(2);
                     ans_out.close();
