@@ -1,7 +1,3 @@
 task_id,group,correct,reason
-func_001,A,False,parse_error
-func_002,A,False,parse_error
-func_006,A,False,parse_error
+func_001,A,False,slope mismatch: got 3.0, expected 103
 func_001,B,True,slope/intercept ok
-func_002,B,True,intersection ok
-func_006,B,True,quadrants ok
