@@ -4,7 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-CSV_PATH = ROOT / "logs" / "results.csv"
+CSV_PATH = ROOT / "logs" / "results_cpp.csv"
 TASKS_PATH = ROOT / "tasks" / "tasks.json"
 
 
